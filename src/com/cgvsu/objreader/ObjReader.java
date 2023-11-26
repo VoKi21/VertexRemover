@@ -23,7 +23,7 @@ public class ObjReader {
 		Scanner scanner = new Scanner(fileContent);
 		while (scanner.hasNextLine()) {
 			final String line = scanner.nextLine();
-			ArrayList<String> wordsInLine = new ArrayList<String>(Arrays.asList(line.split("\\s+")));
+			ArrayList<String> wordsInLine = new ArrayList<>(Arrays.asList(line.split("\\s+")));
 			if (wordsInLine.isEmpty()) {
 				continue;
 			}
@@ -103,9 +103,9 @@ public class ObjReader {
 	}
 
 	protected static Polygon parseFace(final ArrayList<String> wordsInLineWithoutToken, int lineInd) {
-		ArrayList<Integer> onePolygonVertexIndices = new ArrayList<Integer>();
-		ArrayList<Integer> onePolygonTextureVertexIndices = new ArrayList<Integer>();
-		ArrayList<Integer> onePolygonNormalIndices = new ArrayList<Integer>();
+		ArrayList<Integer> onePolygonVertexIndices = new ArrayList<>();
+		ArrayList<Integer> onePolygonTextureVertexIndices = new ArrayList<>();
+		ArrayList<Integer> onePolygonNormalIndices = new ArrayList<>();
 
 		for (String s : wordsInLineWithoutToken) {
 			parseFaceWord(s, onePolygonVertexIndices, onePolygonTextureVertexIndices, onePolygonNormalIndices, lineInd);
