@@ -7,12 +7,6 @@ public class Vector3f {
         this.z = z;
     }
 
-    public boolean equals(Vector3f other) {
-        // todo: желательно, чтобы это была глобальная константа
-        final float eps = 1e-7f;
-        return Math.abs(x - other.x) < eps && Math.abs(y - other.y) < eps && Math.abs(z - other.z) < eps;
-    }
-
     float x, y, z;
 
     public String coordstoStringSplitBySpace() {
@@ -22,5 +16,15 @@ public class Vector3f {
     @Override
     public String toString() {
         return coordstoStringSplitBySpace();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector3f vector3f = (Vector3f) o;
+        return Float.compare(vector3f.x, x) == 0 &&
+                Float.compare(vector3f.y, y) == 0 &&
+                Float.compare(vector3f.z, z) == 0;
     }
 }
