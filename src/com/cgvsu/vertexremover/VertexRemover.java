@@ -21,6 +21,21 @@ public class VertexRemover {
         reindex(model);
     }
 
+    public static void removeVertices(Model model, int[] indices) {
+        for (int index : indices) {
+            if (index < 0 || index >= model.vertices.size()) {
+                throw new IllegalArgumentException(String.format(
+                        "Index %s out of bounds for vertices list of length %s",
+                        index,
+                        model.vertices.size()
+                ));
+            }
+
+            model.polygons.removeIf(polygon -> polygon.getVertexIndices().contains(index));
+        }
+        reindex(model);
+    }
+
     private static void reindex(Model model) {
         Set<Integer> unusedVertices = IntStream
                 .range(0, model.vertices.size()).boxed().collect(HashSet::new, Set::add, Set::addAll);
