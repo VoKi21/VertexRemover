@@ -8,4 +8,8 @@ public class Vector2f {
     }
 
     float x, y;
+
+    public String coordstoStringSplitBySpace() {
+        return String.format("%s %s", x, y);
+    }
 }
