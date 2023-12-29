@@ -46,7 +46,6 @@ public class VertexRemover {
 
         while (!indicesToRemove.isEmpty()) {
             int index = indicesToRemove.pop();
-            System.out.println(originalVertices.get(index));
             originalVertices.remove(index);
 
             for (Polygon polygon : model.polygons) {
