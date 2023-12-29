@@ -12,4 +12,9 @@ public class Vector2f {
     public String coordstoStringSplitBySpace() {
         return String.format("%s %s", x, y);
     }
+
+    @Override
+    public String toString() {
+        return coordstoStringSplitBySpace();
+    }
 }

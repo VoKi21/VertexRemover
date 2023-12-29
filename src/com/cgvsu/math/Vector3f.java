@@ -18,4 +18,9 @@ public class Vector3f {
     public String coordstoStringSplitBySpace() {
         return String.format("%s %s %s", x, y, z);
     }
+
+    @Override
+    public String toString() {
+        return coordstoStringSplitBySpace();
+    }
 }
